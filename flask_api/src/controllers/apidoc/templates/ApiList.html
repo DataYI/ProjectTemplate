@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+
+<body>
+
+    <div id="app">
+        <template>
+            <el-table :data="tableData" border style="width: 100%">
+
+                <el-table-column v-for="(values, key) in fields" :prop="key" :label="values[0]" :width="values[1]">
+                    <template slot-scope="{row, $index}">
+                        <el-input class="edit-cell" v-if="row.edit" v-model="row[key]"></el-input>
+                        <span v-if="!row.edit">{{ row[key] }}</span>
+                    </template>
+                </el-table-column>
+
+                <el-table-column fixed="right" label="Test" width="290">
+                    <template slot-scope="{row, $index}">
+                        <span v-for="method in tableData[$index].methods">
+                            <el-button :type="buttonTypeMap[method]" size="mini" v-show="!row.edit" @click="handleGet($index, row, method)">{{ method }}
+                            </el-button>
+                        </span>
+
+                    </template>
+                </el-table-column>
+            </el-table>
+        </template>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            methods: {
+                handleGet(index, row, method) {
+                    url = this.baseUrl + method + '/?url=' + this.tableData[index].url
+                    console.log(url)
+                    // this.$router.push({path: '127.0.0.1:5000/api-doc/view/post/'})
+                    window.location.href = 'http://' + url
+                }
+            },
+            data: {
+                baseUrl: '127.0.0.1:5000/api-doc/view/',
+                buttonTypeMap: {
+                    GET: 'primary',
+                    POST: 'success'
+                },
+                fields: {
+                    "url": ['Url Path', 200],
+                    "description": ['Description', 500]
+                },
+                tableData: {[ url_list | tojson]}
+                // tableData: [{
+                //     url: '/api/post/',
+                //     description: '文章接口',
+                //     methods: ['get', 'post'],
+                //     edit: false
+                // }]
+            }
+        })
+    </script>
+
+    <style>
+        #app {
+            border: 1px solid #F00;
+            width: 60%;
+            height: 100%;
+            vertical-align: middle;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        ;
+    </style>
+
+</body>
+
+</html>

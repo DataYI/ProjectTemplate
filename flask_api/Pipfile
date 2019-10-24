@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+flask-restful = "*"
+flask-security = "*"
+flask-sqlalchemy = "*"
+flask-script = "*"
+flask-migrate = "*"
+flask-bcrypt = "*"
+pymysql = "*"
+flask-httpauth = "*"
+flask-cors = "*"
+celery = "*"
+librabbitmq = "*"
+pyyaml = "*"
+gevent = "*"
+
+[dev-packages]
+requests = "*"
+"autopep8" = "*"
+
+[requires]
+python_version = "3.7"

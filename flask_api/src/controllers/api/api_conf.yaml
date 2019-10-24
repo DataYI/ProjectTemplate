@@ -1,0 +1,82 @@
+# 注册
+Register:
+  url: /register/
+  methods:
+    POST:
+      args:
+        username:
+          type: str
+          required: True
+          help: 用户名
+        password:
+          type: str
+          required: True
+          help: 密码
+      resp:
+        status: int
+        msg: str
+
+# 登录
+Login:
+  url: /login/
+  methods:
+    POST:
+      args:
+        username:
+          type: str # type
+          required: True # required
+          help: 用户名 # help
+        password:
+          type: str
+          required: True
+          help: 密码
+        remembered:
+          type: bool
+          required: False
+          help: 记住密码
+      resp:
+        status: int # type
+        msg: str
+        token: str
+
+# 临时
+Temp:
+  url: /temp/
+  methods:
+    # GET: null
+    POST:
+      args:
+        f1:
+          type: str
+          required: True
+          help: f1
+        f2:
+          type: str
+          required: True
+          help: f2
+
+# 文章
+Post:
+  url: /post/
+  methods:
+    GET:
+      args:
+        post_id:
+          type: int
+          required: True
+          help: 文章id
+    POST:
+      args:
+        title:
+          type: str
+          required: True
+          help: 标题
+        text:
+          type: str
+          required: True
+          help: 内容
+        tags:
+          type: str
+          required: False
+          action: append # 传入多个值时，parser会解析成列表
+          help: 标签

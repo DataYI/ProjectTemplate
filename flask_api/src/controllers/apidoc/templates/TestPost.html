@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+
+<body>
+    <div id="app">
+        <template>
+            <h2>Url Path: {{ urlPath }}</h2>
+            <blockquote>说明文档</blockquote>
+            <h2>参数说明</h2>
+            <el-table :data="argsData" border style="width: 80%; align-content: center; margin-left: 10%;">
+                <el-table-column v-for="(values, key) in fields" :prop="key" :label="values[0]" :width="values[1]">
+                    <template slot-scope="{row}">
+                        <span>{{ row[key] }}</span>
+                    </template>
+                </el-table-column>
+            </el-table>
+            <h2>Post参数</h2>
+            <p>此处有输入框</p>
+            <span><el-button>测试</el-button></span>
+            <span><el-button>清空</el-button></span>
+            <h2>返回结果</h2>
+            <code>{'statu': 'ok'}</code>
+        </template>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                urlPath: '/api/register/',
+                fields: {
+                    name: ['name', 200],
+                    type: ['type', 100],
+                    required: ['required', 100],
+                    default: ['default', 100],
+                    help: ['help', 410]
+                },
+                argsData: {[ args | tojson ]}
+                // argsData: [{
+                //     name: 'tags',
+                //     type: 'str',
+                //     required: 'True',
+                //     default: 'null',
+                //     help: '没有提示，自己想'
+                // }, {
+                //     name: 'tags',
+                //     type: 'str',
+                //     required: 'True',
+                //     default: 'null',
+                //     help: '没有提示，自己想'
+                // }]
+            }
+        })
+    </script>
+
+    <style>
+        #app {
+            border: 1px solid #F00;
+            width: 60%;
+            height: 100%;
+            vertical-align: middle;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        ;
+    </style>
+</body>
+
+</html>

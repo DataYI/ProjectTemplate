@@ -1,5 +1,5 @@
-# ashadow_be
-个人网站后端
+# flask_api
+api项目模板
 
-## TODO
-接口的参数需求用yaml来写，然后在parsers.py中解析
+## 使用方法
+1. 将`config.yaml.template`修改为`config.yaml`，并修改里面的配置项目后就可以启动项目；

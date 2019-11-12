@@ -20,11 +20,11 @@ python-embed 不包含pip，不包含tk/tcl，需要另外安装。
 ## Templates
 这里有几个已经安装好相关文件的项目模板，可以直接下载使用
 
-### python-3.7.5-pip [下载]()
+### [python-3.7.5-pip]( https://github.com/DataYI/ProjectTemplate/tree/master/python-embeddable/python-3.7.5-pip )
 已安装好 pip
 
-### python-3.7.5-pygame [下载]()
+### [python-3.7.5-pygame]( https://github.com/DataYI/ProjectTemplate/tree/master/python-embeddable/python-3.7.5-pygame )
 已安装好 pip 和 pygame
 
-### python-3.7.5-tkinter [下载]()
+### [python-3.7.5-tkinter]( https://github.com/DataYI/ProjectTemplate/tree/master/python-embeddable/python-3.7.5-tkinter )
 已安装好 pip 和 tkinter

@@ -1,5 +1,5 @@
 # python-embed
-python 官方有嵌入式的发行版，不需要安装，开箱即用，而且它占用空间非常小。使用 python-embed 开发程序后再将程序源码和 python-embed 一起打包成可执行文件比 pyinstaller 打包出来的文件要小。
+python 官方有嵌入式的发行版，不需要安装，开箱即用，而且它占用空间非常小。使用 python-embed 开发的程序方便在没有python环境的机器上运行。
 python-embed 不包含pip，不包含tk/tcl，需要另外安装。
 
 ## 下载 python-embed
